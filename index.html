@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset = "UTF-8">
+       <meta name = "Description" content = "MyDescription">
+       <meta name = "Author" content = "Id, Phonenumber">
+       <meta name = "Keywords" content  = "HTML, CSS, BOOTSTRAP, JAVASCRIPT TUTORIALS">
+       <meta name = "Viewport" content = "width=device-width, initial-scale=1.0">
+       <title>Clock</title>
+       <style>
+           .clock-container {
+              position: relative;
+              width: 310px;
+              height: 310px;
+              background: url(clock.png) no-repeat;
+              background-size: 100%;
+              margin: auto;
+           }
+           .hours {
+              width: 10px;
+              height: 90px;
+              background-color: black;
+              border-radius: 10px;
+              position: absolute;
+              left: 149.3px;
+              top: 67px;
+              transform-origin: bottom;
+            }
+            .minutes {
+                width: 10px;
+                height: 100px;
+                background-color: black;
+                border-radius: 10px;
+                position: absolute;
+                left: 149px;
+                top: 55px;
+                transform-origin: bottom;
+            }
+            .seconds {
+                width: 8px;
+                height: 115px;
+                background-color: black;
+                border-radius: 10px;
+                position: absolute;
+                left: 150.3px;
+                top: 42px;
+                transform-origin: bottom;
+           }
+       </style>
+    </head>
+    <body>
+       <div class = "clock-container">
+          <div class = "hours">
+
+          </div>
+          <div class = "minutes">
+
+          </div>
+          <div class = "seconds">
+
+          </div>
+       </div>
+       <script>
+          setInterval(() => {
+             let d = new Date();
+             let htime = d.getHours();
+             let mtime = d.getMinutes();
+             let stime = d.getSeconds();
+             let hours = document.querySelector('.hours');
+             let minutes = document.querySelector('.minutes');
+             let seconds = document.querySelector('.seconds');
+             let hrotation = 30 * htime + mtime / 2;
+             let mrotation = 6 * mtime;
+             let srotation = 6 * stime;
+             hours.style.transform = `rotate(${hrotation}deg)`;
+             minutes.style.transform = `rotate(${mrotation}deg)`;
+             seconds.style.transform = `rotate(${srotation}deg)`;
+            }, 1000);
+       </script>
+    </body>
+</html>
